@@ -1,0 +1,160 @@
+.Header-container {
+    width: 100%;
+    height: 10vh;
+    border-bottom: solid #c5c5c5 0.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw 0 2vw; 
+    box-sizing: border-box; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1vw; 
+}
+
+.logo-container h1 {
+    margin: 0; 
+    color: black;
+    font-size: 2.5vw; 
+}
+
+.logo-container img {
+    width: 3vw; 
+}
+
+@media (max-width: 768px) {
+    .logo-container h1 {
+        font-size: 6vw;
+    }
+
+    .logo-container img {
+        width: 8vw; 
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container h1 {
+        font-size: 7vw; 
+    }
+
+    .logo-container img {
+        width: 10vw;
+    }
+    .logo-container {
+        gap: 2vw; 
+    }
+}
+
+.SearchBox-container {
+    cursor: pointer;
+    width: 35vw;
+    height: 70%;
+    background-color: #fde8e6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.SearchBox-container input {
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    outline: none;
+    font-size: 1rem; 
+}
+
+.SearchBox-container input::placeholder {
+    font-size: 1rem; 
+    color: #888;
+}
+
+.SearchBox-container i {
+    font-size: 1.2rem;
+    color: #da3023;
+}
+
+.catagory-dropdown {
+    width: 50%;
+    height: 50vh;
+    background-color: magenta;
+    position: absolute;
+    top: 100%;
+    left: 2.5%;
+    opacity: 0;
+    visibility: hidden; /* Initially hidden */
+    transform: translateY(-20px); /* Start position for animation */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+.catagory-dropdown.show {
+    opacity: 1;
+    visibility: visible; /* Make visible */
+    transform: translateY(0); /* End position for animation */
+}
+
+@media (max-width: 768px) {
+    .SearchBox-container {
+        display: none;
+    }
+}
+.signup-cart-container{
+    width: auto;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.signup-cart-container i{
+    color: #da3023;
+
+}
+#login-btn{
+    display: flex;
+    gap: 0.5rem;
+    border-right: 1px solid gray;
+    padding-right: 0.7rem;
+    cursor: pointer;
+}
+#cart-btn{
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.signup-cart-container {
+    width: auto;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-cart-container a {
+    text-decoration: none; /* Remove default underline from links */
+    color: inherit; /* Inherit color from parent element */
+}
+
+.signup-cart-container i {
+    color: #da3023;
+}
+
+#login-btn{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.7rem; /* Adjust padding to fit text */
+    cursor: pointer;
+    border-right: 1px solid gray;
+}
+
+
+
