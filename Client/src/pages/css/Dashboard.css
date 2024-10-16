@@ -1,0 +1,498 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Dashboard container */
+.dashboard {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    flex-direction: row;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #da3023;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #b72a1e;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #a3211a;
+    transform: scale(1.02);
+}
+
+.sidebar ul li.active {
+    background-color: #a3211a;
+}
+
+/* Content styles */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    transition: padding 0.3s ease;
+    overflow-x: auto;
+}
+
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #da3023;
+    font-weight: bold;
+}
+
+/* Form elements */
+.content input[type="text"],
+.content input[type="number"],
+.content input[type="email"],
+.content input[type="tel"],
+.content textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.content input[type="text"]:focus,
+.content input[type="number"]:focus,
+.content input[type="email"]:focus,
+.content input[type="tel"]:focus,
+.content textarea:focus {
+    border-color: #da3023;
+    outline: none;
+}
+
+.content button {
+    padding: 12px 24px;
+    background-color: #da3023;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.content button:hover {
+    background-color: #a3211a;
+    transform: scale(1.05);
+}
+
+/* List styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+li button {
+    padding: 6px 12px;
+    background-color: #da3023;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+li button:hover {
+    transform: scale(1.05);
+}
+
+li .edit-btn {
+    background-color: #007bff;
+    margin-right: 10px;
+}
+
+li .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.order-status-buttons {
+    display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+}
+
+
+.order-status-buttons .processing {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.order-status-buttons .delivered {
+    background-color: #28a745;
+    color: white;
+}
+
+.order-status-buttons .cancelled {
+    background-color: #dc3545;
+    color: white;
+}
+
+.order-status-buttons  .Out_of_Delivery {
+    background-color: blue;
+    color: white;
+}
+
+
+
+.edit-deletebtn-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#manage-order-detilammm-li {
+    flex-direction: column;
+}
+
+.manage-order-detilammm {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar ul i {
+    display: none;
+}
+
+.manage-order-detila-busdv {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+}
+
+.manage-order-detila-busdv h4 {
+    padding: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: auto;
+        padding: 9px;
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+    .sidebar ul li:first-child{
+        display: none;
+    }
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sidebar ul h5 {
+        display: none;
+    }
+
+    .sidebar ul i {
+        display: block;
+    }
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .order-status-buttons {
+        flex-direction: column;
+    }
+
+    .edit-deletebtn-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+.mange-brand-div-cooddfsdb {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+.mange-brand-div-cooddfsdb img {
+    width: 8rem;
+    height: 5rem;
+    object-fit: contain;
+}
+
+/* Photo upload box styles */
+.upload__image-wrapper {
+    border: 2px dashed #da3023;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+    transition: border-color 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.upload__image-wrapper button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #da3023;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.upload__image-wrapper button:hover {
+    background-color: #a3211a;
+    transform: scale(1.05);
+}
+
+.upload__image-wrapper img {
+    margin: 5px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.upload__image-wrapper img:hover {
+    transform: scale(1.1);
+}
+
+/* CSS */
+.button-57 {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #18181a;
+  color: #18181a;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 18px 18px 17px;
+  text-decoration: none;
+  cursor: pointer;
+  background: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-57 span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.button-57 span:last-child {
+  color: white;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 13px;
+}
+
+.button-57:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.button-57:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-57:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+/* Form elements */
+.content input[type="text"],
+.content input[type="number"],
+.content textarea,
+.content select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.content input[type="text"]:focus,
+.content input[type="number"]:focus,
+.content textarea:focus,
+.content select:focus {
+    border-color: #da3023;
+    outline: none;
+}
+
+.content button {
+    padding: 12px 24px;
+    background-color: #da3023;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.content button:hover {
+    background-color: #a3211a;
+    transform: scale(1.05);
+}
+
+/* Styling for select inputs */
+.content select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="%23da3023" d="M143 352l-136-136c-9.4-9.4-9.4-24.6 0-34.1l136-136c9.4-9.4 24.6-9.4 34.1 0l136 136c9.4 9.4 9.4 24.6 0 34.1l-136 136c-9.4 9.4-24.6 9.4-34.1 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
+    cursor: pointer;
+}
+
+.content select:focus {
+    border-color: #da3023;
+    outline: none;
+}
+
+/* Adjustments for select dropdowns */
+.content select option {
+    padding: 12px;
+}
+#mng-pro-ratin-con{
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+
+
+.analytics {
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* Ensures content is scrollable on small screens */
+}
+
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chart {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ensure charts scale to fit their container */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+    .charts-container {
+        
+        gap: 20px;
+    }
+    
+    .chart {
+        flex: 1;
+        min-width: 300px; /* Ensures charts don’t get too small on larger screens */
+    }
+}
+
+.custom-tooltip {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.custom-tooltip .label {
+    font-weight: bold;
+}

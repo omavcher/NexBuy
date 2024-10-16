@@ -1,0 +1,198 @@
+.order-detail-page {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f7f7f7; /* Light background for contrast */
+}
+
+.cart-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.order-details {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+}
+
+.product-cardbb {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px; /* More rounded corners for a softer look */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover effect */
+}
+
+.product-cardbb:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.product-image img {
+    width: 150px;
+    height: 150px; /* Fixed height for uniformity */
+    border-radius: 8px; /* Rounded corners */
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow around image */
+}
+
+.product-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.product-rating {
+    font-size: 14px;
+    color: #ff9900; /* Amazon yellow for ratings */
+    margin-bottom: 10px;
+}
+
+.product-info h4 {
+    font-size: 22px; /* Slightly larger font for the product title */
+    margin: 0;
+    color: #007600; /* Darker green for product title */
+}
+
+.product-info .product-price {
+    font-size: 24px; /* Larger font for price */
+    font-weight: bold;
+    color: #d84303; /* Color for price */
+    margin: 10px 0; /* Increased margin for spacing */
+    background-color: #f9f9f9; /* Light background for better visibility */
+    padding: 10px; /* Padding around the price */
+    border-radius: 6px; /* Rounded corners for price background */
+    display: inline-block; /* Inline block to make it look like a tag */
+}
+
+.product-info p {
+    margin: 5px 0;
+}
+
+.product-info span {
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-details {
+        padding: 15px;
+    }
+    .product-cardbb {
+        flex-direction: column; /* Stack image and info on small screens */
+        align-items: center; /* Center alignment */
+        text-align: center; /* Center text */
+    }
+    .product-image {
+        margin-bottom: 15px;
+    }
+    .product-image img {
+        width: 100%; /* Full width for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 150px; /* Limit width for consistency */
+    }
+    .product-info {
+        margin-left: 0; /* Remove margin for small screens */
+    }
+}
+.product-cardbb {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px; 
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff; /* Default background color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Match and No Match Styles */
+.product-cardbb.match {
+    background-color: #e0ffe0; /* Light green for matching products */
+}
+
+.product-cardbb.no-match {
+    background-color: #ffe0e0; /* Light red for non-matching products */
+}
+
+/* Blurring Effect */
+.product-image.blur {
+    filter: blur(4px); /* Apply blur to image */
+}
+
+.no-match-message {
+    color: #d84303; /* Color for the no-match message */
+    font-weight: bold;
+    margin-top: 10px; /* Space above the message */
+}
+
+/* Additional Responsive Design */
+@media (max-width: 768px) {
+    .product-cardbb {
+        flex-direction: column; /* Stack image and info */
+        align-items: center; /* Center alignment */
+        text-align: center; /* Center text */
+    }
+    .product-image {
+        margin-bottom: 15px;
+    }
+}
+/* CSS for product card */
+.product-cardbb {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px; 
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff; /* Default background color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Match and No Match Styles */
+.product-cardbb.match {
+    background-color: #e0ffe0; /* Light green for matching products */
+}
+
+.product-cardbb.no-match {
+    background-color: #ffe0e0; /* Light red for non-matching products */
+}
+
+/* Blurring Effect */
+.product-image.blur {
+    filter: blur(4px); /* Adjust the blur for image */
+}
+
+.product-title.blur {
+    filter: blur(1px); /* Adjust the blur for title */
+}
+
+.product-price.blur {
+    filter: blur(5px); /* Adjust the blur for price */
+}
+
+.product-description.blur {
+    filter: blur(5px); /* Adjust the blur for description */
+}
+
+.no-match-message {
+    color: #d84303; /* Color for the no-match message */
+    font-weight: bold;
+    margin-top: 10px; /* Space above the message */
+}
+
+/* Additional Responsive Design */
+@media (max-width: 768px) {
+    .product-cardbb {
+        flex-direction: column; /* Stack image and info */
+        align-items: center; /* Center alignment */
+        text-align: center; /* Center text */
+    }
+    .product-image {
+        margin-bottom: 15px;
+    }
+}

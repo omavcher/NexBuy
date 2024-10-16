@@ -1,0 +1,189 @@
+
+.address-header {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.address-header i {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.address-header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.address-main {
+    padding: 20px;
+}
+
+.address-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.address-header-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.address-header-card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.edit-button {
+    color: #DB3022;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.address-details {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.checkbox-container span {
+    margin-left: 8px;
+}
+
+.fab-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Address Form Styles */
+.address-form {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+.address-form-content {
+    max-height: calc(100vh - 100px);
+}
+
+.address-form h2 {
+    margin-top: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #DB3022;
+    cursor: pointer;
+    float: right;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > div, form > fieldset {
+    margin-bottom: 15px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+button[type="submit"] {
+    background-color: #DB3022;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+
+}
+
+button[type="submit"]:hover {
+    background-color: #a22d1f;
+}
+
+
+
+@media (max-width: 768px) {
+    .address-header h1 {
+        font-size: 20px;
+    }
+
+    .address-card {
+        padding: 10px;
+    }
+
+    .address-header-card h3 {
+        font-size: 16px;
+    }
+
+    .edit-button {
+        font-size: 12px;
+    }
+
+    .address-details {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .address-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .address-header i {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .address-header h1 {
+        font-size: 18px;
+    }
+
+    .address-card {
+        padding: 8px;
+    }
+
+    .address-header-card h3 {
+        font-size: 14px;
+    }
+
+    .edit-button {
+        font-size: 10px;
+    }
+
+    .address-details {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,136 @@
+.checkout-page {
+    font-family: 'Arial', sans-serif;
+    padding: 1rem;
+}
+
+.checkout-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8;
+}
+
+.checkout-header i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.checkout-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.checkout-content {
+    padding: 1rem;
+}
+
+.shipping-section, .payment-section, .order-summary {
+    margin-bottom: 1.5rem;
+}
+
+.shipping-address, .payment-method {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shipping-address p, .payment-method p {
+    margin: 0.2rem 0;
+}
+
+.card-display {
+    width: 100%;
+}
+
+.change-btn {
+    color: #da3023;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.order-summary {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.product-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.order-item h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.summary-row.total {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.submit-order-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #da3023;    ;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.submit-order-btn:hover {
+    background-color: #c61e12;
+    
+}
+
+@media (max-width: 768px) {
+    .checkout-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .shipping-address, .payment-method, .order-summary {
+        padding: 0.5rem;
+    }
+
+    .product-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .submit-order-btn {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+#Link{
+    text-decoration: none;
+}

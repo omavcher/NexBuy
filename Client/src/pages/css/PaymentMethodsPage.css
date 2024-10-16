@@ -1,0 +1,117 @@
+.payment-methods-page {
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.payment-methods-container {
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.payment-methods-list {
+  margin-top: 1rem;
+}
+
+.payment-method-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.payment-method-card.default {
+  border: 2px solid #da3023;
+}
+
+.card-details {
+  margin-bottom: 1rem;
+}
+
+.default-payment {
+  display: flex;
+  align-items: center;
+}
+
+.default-payment input {
+  margin-right: 0.5rem;
+}
+
+.add-card {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.add-card-button {
+  background-color: #da3023;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-card-form {
+  margin-top: 1.5rem;
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-card-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.add-card-form input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.set-default-payment {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.set-default-payment input {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+.add-card-btn {
+  background-color: #da3023;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.cancel-btn {
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.5rem;
+}

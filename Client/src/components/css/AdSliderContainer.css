@@ -1,0 +1,125 @@
+/* Container for the slider */
+.Ads-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden; /* Hide overflow */
+    background-color: #f8f8f8; /* Background color */
+  }
+  
+  /* Slider wrapper */
+  .slider-wrapper {
+    display: flex; /* Arrange slides in a row */
+    transition: transform 1s ease-in-out; /* Smooth sliding transition */
+  }
+  
+  /* Slide images */
+  .slider-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    flex: 0 0 100%; /* Each image takes full width of the slider container */
+    object-fit: cover; /* Cover the container without distortion */
+  }
+  
+  /* Left and right buttons */
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fde8e6; /* Semi-transparent background */
+    color: #DB3022;
+    border: none;
+    padding: 1rem 1.3rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  /* Left button */
+  .slider-btn.left {
+    left: 10px; /* Adjust position */
+  }
+  
+  /* Right button */
+  .slider-btn.right {
+    right: 10px; 
+    width: 51.44px;
+    left: inherit;
+  }
+  
+  /* Hide the left button on the first slide */
+  .slider-btn.left.hidden {
+    display: none;
+  }
+  
+  /* Hide the right button on the last slide */
+  .slider-btn.right.hidden {
+    display: none;
+  }
+  
+  /* Radio buttons at the bottom */
+  .slider-radio {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+  
+  /* Style for each radio button */
+  .slider-radio input[type='radio'] {
+    display: none; /* Hide the default radio button */
+  }
+  
+  /* Custom radio button */
+  .slider-radio label {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    background-color: #bbb; /* Inactive color */
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Highlight the active radio button */
+  .slider-radio input[type='radio']:checked + label {
+    background-color: #DB3022; /* Active color */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .slider-btn {
+      padding: 0.9rem;
+      font-size: 1.2rem; /* Adjust size for smaller screens */
+    }
+    .slider-btn {
+        top: 6rem;
+    }
+    .slider-radio{
+        top: 10rem;
+
+    }
+    .slider-radio label {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slider-btn {
+        top: 4.5rem;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.75rem; /* Further adjust size for very small screens */
+    }
+    .slider-radio{
+        top: 6rem;
+
+    }
+    .slider-radio label {
+      width: 8px;
+      height: 8px;
+    }
+  }
+  

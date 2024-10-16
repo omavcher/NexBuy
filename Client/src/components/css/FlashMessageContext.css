@@ -1,0 +1,227 @@
+:root {
+    --white: #FCFCFC;
+    --gray: #CBCDD3;
+    --dark: #777777;
+    --error: #ec0f30;
+    --orange: #f88b69;
+    --success: #23b103;
+    --secondary: #02d359;
+    --font: 'Lato', sans-serif;
+}
+
+/* Basic Styles */
+
+/* Container Styles */
+#container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 9999;
+    padding: 20px;
+}
+
+/* Success and Error Box Styles */
+#success-box, #error-box {
+    position: relative;
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    margin: 0 10px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    text-align: center;
+}
+
+#success-box {
+    background: linear-gradient(to bottom right, var(--success) 40%, var(--secondary) 100%);
+}
+
+#success-box .message h1 {
+}
+
+#success-box .button-box h1 {
+    color: var(--success);
+}
+
+#error-box {
+    background: linear-gradient(to bottom left, var(--error) 40%, var(--orange) 100%);
+}
+
+#error-box .message h1 {
+}
+
+#error-box .button-box h1 {
+    color: var(--error);
+}
+
+/* Flash Message Elements */
+.dot {
+    width: 10px;
+    height: 10px;
+    background: var(--white);
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: background 0.3s;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.face, .face2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--white);
+    border-radius: 50%;
+    border: 1px solid var(--dark);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.face {
+    animation: bounce 1s ease-in infinite;
+}
+
+.face2 {
+    animation: roll 3s ease-in-out infinite;
+}
+
+.eye {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--dark);
+    border-radius: 50%;
+    top: 35%;
+    left: 20%;
+}
+
+.right {
+    left: 60%;
+}
+
+.mouth {
+    position: absolute;
+    top: 55%;
+    left: 37%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.happy {
+    border: 2px solid;
+    border-color: transparent var(--dark) var(--dark) transparent;
+    transform: rotate(45deg);
+}
+
+.sad {
+    border: 2px solid;
+    border-color: var(--dark) transparent transparent var(--dark);
+    transform: rotate(45deg);
+}
+
+.shadow {
+    position: absolute;
+    width: 40%;
+    height: 5%;
+    background: var(--dark);
+    border-radius: 50%;
+    opacity: 0.3;
+    bottom: 10%;
+    transform: translateX(-50%);
+}
+
+.scale {
+    animation: scale 1s ease-in infinite;
+}
+
+.move {
+    animation: move 3s ease-in-out infinite;
+}
+
+/* Message Styles */
+.message {
+    margin-top: 80px;
+    color: var(--white);
+}
+
+.button-box {
+    background: var(--white);
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-box h1 {
+    margin: 0;
+    color: var(--dark);
+}
+
+.button-box:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes bounce {
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes scale {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0deg);
+        left: 25%;
+    }
+    50% {
+        left: 60%;
+        transform: rotate(168deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        left: 25%;
+    }
+}
+
+@keyframes move {
+    0% {
+        left: 25%;
+    }
+    50% {
+        left: 60%;
+    }
+    100% {
+        left: 25%;
+    }
+}

@@ -1,0 +1,83 @@
+.dproduct-card {
+    width: 15rem;
+    height: 26rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    position: relative;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+
+  }
+  
+  .product-imagei {
+    width: 100%;
+    height: 60%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+  
+  .rating-section {
+    margin-bottom: 1rem;
+  }
+  
+  .product-info {
+    flex-direction: column;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .brand-name {
+    font-size: 0.875rem;
+    color: #555;
+  }
+  
+  .product-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+  
+  .price-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+  }
+  
+  .discounted-price {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: #f00;
+  }
+  
+  .original-price {
+    font-size: 1.25rem;
+    text-decoration: line-through;
+    color: #999;
+  }
+  
+  .favorite-button {
+    position: absolute;
+    top: -12rem;
+    right: -5rem;
+  }
+  /* Add to your existing CSS */
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95); /* Optional: Slightly scale down */
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1); /* Reset scale */
+}

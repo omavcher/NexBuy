@@ -1,0 +1,89 @@
+/* MyReviewsPage.css */
+.my-reviews-page {
+    padding: 1rem;
+    background-color: #f5f5f5;
+}
+
+.reviews-container {
+    margin: 0 auto;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: #da3023;
+    color: white;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-image {
+    width: 144px;
+    height: 127px;
+    border-radius: 5px;
+}
+
+.review-content {
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+.review-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #da3023;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f1f1f1;
+    color: #555;
+}

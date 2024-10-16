@@ -1,0 +1,67 @@
+/* JoinBusinessPage.css */
+.join-business-page {
+    padding: 1rem;
+    height: 100vh;
+}
+
+.join-form-container,
+.dashboard-container {
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.register-btn {
+    background-color: #da3023;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .join-form-container,
+    .dashboard-container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

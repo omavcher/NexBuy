@@ -6,17 +6,20 @@ const cors = require('cors'); // Import CORS middleware
 dotenv.config();
 
 const app = express();
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/userRoutes.js');
+const productRoutes = require('./routes/productRoutes.js');
+const businessRoutes = require('./routes/businessRoutes.js');
+
 
 app.use(express.json());
 
 // Use CORS middleware
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: process.env.FRONTEND_LINK, 
 }));
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.FRONTEND_LINK,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
@@ -27,6 +30,9 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error('Could not connect to MongoDB...', err));
 
 app.use('/api', userRoutes);
+app.use('/api', productRoutes);
+app.use('/api/business', businessRoutes);
+
 
 // Define a route for the root URL
 app.get('/', (req, res) => {

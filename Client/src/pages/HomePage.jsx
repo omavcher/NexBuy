@@ -1,24 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
+import './css/HomePage.css';
+import { Link } from 'react-router-dom';
+import AdSliderContainer from '../components/AdSliderContainer';
+import CategorieSection from '../components/CategorieSection';
+import PrroductHero from '../components/PrroductHero';
+import CategroeyHero from '../components/CategroeyHero';
+
 
 const HomePage = () => {
-  useEffect(() => {
-    document.title = 'Home Page';
-
-    return () => {
-      document.title = 'NexBuy';
-    };
-  }, []); 
 
   return (
     <div>
-      <Header/>
-      
+      <Header />
       <main>
-      <h1>Home Page</h1>
-      <p>Welcome to the Home Page!</p>
-      </main>
+        <CategorieSection/>
+        <AdSliderContainer/>
+        <PrroductHero category="electronics"/>
+        <CategroeyHero/>
+        <PrroductHero category="beauty"/>
 
+      </main>
     </div>
   );
 };

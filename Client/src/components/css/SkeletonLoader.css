@@ -1,0 +1,8 @@
+/* src/components/SkeletonLoader.css */
+.skeleton-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  

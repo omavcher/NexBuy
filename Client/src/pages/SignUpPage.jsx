@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import './css/SignUpPage.css';
-import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -12,7 +11,8 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import api from '../api'; 
+import FormHelperText from '@mui/material/FormHelperText';
+import api from '../api';
 
 export default function SignUpPage() {
   const navigate = useNavigate();
@@ -28,7 +28,15 @@ export default function SignUpPage() {
     password: false,
     mobile: false,
   });
+  const [serverError, setServerError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    document.title = 'NexBuy - SignUp';
+    return () => {
+      document.title = 'NexBuy';
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -78,21 +86,42 @@ export default function SignUpPage() {
     return !Object.values(errors).some(error => error === true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      api.post('/api/sign-up', formValues) 
-        .then(response => {
-          console.log('Form Submitted:', response.data);
-          navigate('/success');
-        })
-        .catch(error => {
-          console.error('Error submitting form:', error);
-        });
-    } else {
-      console.log('Form has errors.');
+        try {
+            // Perform signup
+            await api.post('/api/sign-up', formValues);
+
+            // Perform login immediately after signup
+            const loginResponse = await api.post('/api/log-in', {
+                email: formValues.email,
+                password: formValues.password,
+            });
+
+            console.log('Login Response Data:', loginResponse.data); // Inspect this
+
+            const { token, user } = loginResponse.data; // Extract token and user details
+            if (token && user) {
+                localStorage.setItem('token', token);
+                localStorage.setItem('userId', user._id); // Store user._id as userId
+                localStorage.setItem('account_type', user.account_type); // Store account_type
+                navigate('/'); 
+            } else {
+                setServerError('Failed to login. Please try again.');
+            }
+        } catch (error) {
+            if (error.response) {
+                setServerError(error.response.data.message || 'An error occurred. Please try again.');
+            } else {
+                setServerError('An error occurred. Please try again.');
+            }
+        }
     }
-  };
+};
+
+  
+  
 
   const goBack = () => {
     navigate(-1);
@@ -181,7 +210,12 @@ export default function SignUpPage() {
             helperText={formErrors.mobile ? "Enter a valid 10-digit mobile number." : ""}
             fullWidth
           />
-          <Link to='/signin' className='have-acc-div'>
+          {serverError && (
+            <div className="error-message">
+              <p>{serverError}</p>
+            </div>
+          )}
+          <Link to='/login' className='have-acc-div'>
             <p>Already have an account?</p>
             <img src='./round-arrow_right.png' alt='Arrow' />
           </Link>
@@ -192,7 +226,7 @@ export default function SignUpPage() {
             sx={{ mt: 2, width: '100%' }}
             type="submit"
           >
-            Sign Up
+            SIGNUP
           </Button>
         </Box>
 

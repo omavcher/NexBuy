@@ -1,0 +1,212 @@
+.catagory-tab-container {
+    width: 100%;
+    height: 3rem;
+    border-bottom: solid 1px #DB3022;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    position: relative;
+    background-color: #f8f8f8;
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+    scrollbar-width: none; 
+}
+
+.catagory-tab-container::-webkit-scrollbar {
+    display: none;
+}
+
+.catagory-tab-container span {
+    padding: 0.5rem 1rem;
+    border: #DB3022 solid 2px;
+    border-radius: 20rem;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    white-space: nowrap; 
+}
+
+.catagory-tab-container span:hover {
+    background-color: #DB3022;
+    color: aliceblue;
+}
+
+#selected {
+    color: aliceblue;
+    background-color: #DB3022;
+}
+
+.catagory-tab {
+    position: fixed;
+    top: 110%;
+    width: 90%; 
+    max-height: 20rem; 
+    overflow-y: auto; 
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 0.5rem;
+    background-color: white; 
+    border: 1px solid #DB3022; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-left: 5%; 
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+        top: 8rem; 
+}
+
+.catagory-tab.fade-in {
+    opacity: 1;
+    visibility: visible;
+}
+
+.catagory-tab.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#catagory-btn {
+    text-decoration: none;
+    color: #333; 
+}
+
+.catagory-product {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd; 
+    transition: background-color 0.3s ease; 
+}
+
+.catagory-product:last-child {
+    border-bottom: none;
+}
+
+.catagory-product:hover {
+    background-color: #f0f0f0; 
+}
+
+.catagory-product img {
+    height: 150%;
+    border-radius: 50%; 
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+@media (max-width: 480px) {
+    .catagory-tab-container {
+        height: 2.5rem;
+        justify-content: start;
+    }
+
+    .catagory-tab-container span {
+        padding: 0.3rem 0.5rem;
+        border: #DB3022 solid 2px;
+        border-radius: 20rem;
+        font-size: 0.9rem;
+        margin-left: 0.2rem;
+    }
+
+    .catagory-tab-container span:nth-child(n+4) {
+        display: none;
+    }
+
+    .catagory-tab {
+        width: 15rem;
+        top: 6.8rem;
+        left: 2rem;
+        
+
+    }
+}
+
+@media (min-width: 481px) {
+    .catagory-tab-container {
+        height: 3rem;
+    }
+
+    .catagory-tab-container span {
+        padding: 0.5rem 1rem;
+        border: #DB3022 solid 2px;
+        border-radius: 20rem;
+    }
+
+    /* Show more categories as needed */
+    .catagory-tab-container span:nth-child(n+8) {
+        display: none; /* Limit visible categories to seven */
+    }
+    .catagory-tab{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+ 
+.slider {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.image-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.left-btn, .right-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.radio-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.radio-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.radio-btn.active {
+    background-color: #DB3022;
+}
+
+/* Hide buttons on the first and last image */
+.slider:first-child .left-btn {
+    display: none;
+}
+
+.slider:last-child .right-btn {
+    display: none;
+}

@@ -7,6 +7,7 @@
     align-items: center;
     padding: 0 2vw;
     box-sizing: border-box;
+    background-color: #f9f8f8;
 }
 
 .logo-container {
@@ -37,15 +38,18 @@
 
 @media (max-width: 480px) {
     .logo-container h1 {
-        font-size: 7vw;
+        font-size: 6.2vw;
     }
 
     .logo-container img {
-        width: 10vw;
+        width: 7vw;
     }
 
     .logo-container {
         gap: 2vw;
+    }
+    .signup-cart-container {
+        font-size: 0.8rem;
     }
 }
 
@@ -83,7 +87,9 @@
 
 
 
+
 .catagory-dropdown.show {
+    z-index: 100;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -120,7 +126,14 @@
     cursor: pointer;
     border-right: 1px solid gray;
 }
-
+#profile-btn{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.7rem;
+    cursor: pointer;
+    border-right: 1px solid gray;
+}
 #cart-btn {
     display: flex;
     gap: 0.5rem;
@@ -156,21 +169,7 @@
     transform: scale(1);
 }
 
-.catagory-dropdown {
-    width: 50%;
-    height: 50vh;
-    background-color: #ffafa8;
-    border: #888 1px solid;
-    position: absolute;
-    top: 100%;
-    left: 2.5%;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    border-radius: 5px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
+
 .catagory-dropdown label {
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -182,8 +181,7 @@
 .catagory-dropdown {
     width: 50%;
     height: auto;
-    background-color: #ffafa8;
-    border: #888 1px solid;
+    background-color: #ffd2ce;
     position: absolute;
     top: 100%;
     left: 2.5%;
@@ -191,7 +189,6 @@
     visibility: hidden;
     transform: translateY(-20px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 10px; /* Added padding */
     box-sizing: border-box;
@@ -205,7 +202,7 @@
 }
 
 .catagory-dropdown div:hover {
-    background-color: #fe867b;
+    background-color: #ffc2bc;
     border-radius: 8px;
 
 }
@@ -213,4 +210,26 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+.suggestions-tab{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: #f8c6c2;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    z-index: 50;
+}
+#product-sugg{
+    text-decoration: none;
+    color: black;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    width: 100%;
+}
+#product-sugg:hover{
+    background-color: #d3948f;
+
 }
