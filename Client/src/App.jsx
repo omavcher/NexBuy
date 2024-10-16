@@ -23,7 +23,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
 import OrderDetailPage from './pages/OrderDetailPage';
 import Dashboard from './pages/Dashboard';
-import BusinessOwnerProductDetailPage from './pages/BusinessOwnerProductDetailPage.jsX';
+import BusinessOwnerProductDetailPage from './pages/BusinessOwnerProductDetailPage';
 
 const theme = createTheme({
   // Customize your theme here
