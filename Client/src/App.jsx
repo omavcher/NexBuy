@@ -22,7 +22,7 @@ import CheckoutPage from './pages/CheckoutPage';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
 import OrderDetailPage from './pages/OrderDetailPage';
-import Dashboard from './pages/DashboArd';
+import Dashboard from './pages/Dashboard';
 import BusinessOwnerProductDetailPage from './pages/BusinessOwnerProductDetailPage.jsX';
 
 const theme = createTheme({
