@@ -3,27 +3,27 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Header from '../components/Header.jsx';
 import { Navigate } from 'react-router-dom';
-import { usePaymentInputs, PaymentInputsContainer } from 'react-payment-inputs';
-import images from 'react-payment-inputs/images';
+import Cards from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
 import './css/PaymentMethodsPage.css';
 import api from '../api.js';
 
 export default function PaymentMethodsPage() {
   const [paymentMethods, setPaymentMethods] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); // New state to manage loading
   const [showAddCard, setShowAddCard] = useState(false);
+  const [cardInfo, setCardInfo] = useState({
+    cvc: '',
+    expiry: '',
+    focus: '',
+    name: '',
+    number: '',
+    setDefault: false
+  });
   const [defaultCardNumber, setDefaultCardNumber] = useState(null);
   const [error, setError] = useState(null);
   const isAuthenticated = localStorage.getItem('token');
   const userId = '66d3e94f8a05052f502d4562'; // Replace with dynamic user ID if needed
-
-  const {
-    meta,
-    getCardNumberProps,
-    getExpiryDateProps,
-    getCvcProps,
-    getCardImageProps,
-  } = usePaymentInputs();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -34,12 +34,12 @@ export default function PaymentMethodsPage() {
         setPaymentMethods(response.data.payment_methods);
         const defaultMethod = response.data.payment_methods.find(method => method.default_payment_method);
         if (defaultMethod) setDefaultCardNumber(defaultMethod.card_number);
-        setIsLoading(false);
+        setIsLoading(false); // Stop loading when data is fetched
       })
       .catch(error => {
         console.error('Error fetching payment methods:', error);
         setError('Error fetching payment methods');
-        setIsLoading(false);
+        setIsLoading(false); // Stop loading even if there's an error
       });
     }
   }, [isAuthenticated, userId]);
@@ -69,24 +69,38 @@ export default function PaymentMethodsPage() {
   };
 
   const handleAddCard = () => {
-    const newCard = {
-      number: meta.cardNumber.value,
-      expiry: meta.expiryDate.value,
-      cvc: meta.cvc.value,
-      default_payment_method: meta.setDefault
-    };
-
+    const newCard = { ...cardInfo, default_payment_method: cardInfo.setDefault };
     api.post(`/api/users/${userId}/payment-methods`, newCard, {
       headers: { Authorization: `Bearer ${isAuthenticated}` }
     })
     .then(response => {
       setPaymentMethods(prevMethods => [...prevMethods, response.data]);
+      setCardInfo({
+        cvc: '',
+        expiry: '',
+        focus: '',
+        name: '',
+        number: '',
+        setDefault: false
+      });
       setShowAddCard(false);
     })
     .catch(error => {
       console.error('Error adding new card:', error);
       setError('Error adding new card');
     });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setCardInfo(prevState => ({
+      ...prevState,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleInputFocus = (e) => {
+    setCardInfo(prevState => ({ ...prevState, focus: e.target.name }));
   };
 
   return (
@@ -97,6 +111,7 @@ export default function PaymentMethodsPage() {
         {error && <p className="error-message">{error}</p>}
         <div className="payment-methods-list">
           {isLoading ? (
+            // Show skeleton loaders while data is being fetched
             Array(3).fill().map((_, index) => (
               <div key={index} className="payment-method-card">
                 <Skeleton height={200} width={300} />
@@ -109,8 +124,13 @@ export default function PaymentMethodsPage() {
             paymentMethods.map((method) => (
               <div key={method.card_number} className={`payment-method-card ${method.default_payment_method ? 'default' : ''}`}>
                 <div className="card-details">
-                  <img {...getCardImageProps({ images })} alt="Card Type" />
-                  <div>{method.card_number}</div>
+                  <Cards
+                    cvc={method.cvv || ''}
+                    expiry={method.expiry_date || ''}
+                    focused={cardInfo.focus}
+                    name={method.card_name || ''}
+                    number={method.card_number || ''}
+                  />
                 </div>
                 <div className="default-payment">
                   <input
@@ -124,26 +144,66 @@ export default function PaymentMethodsPage() {
             ))
           )}
         </div>
-
         <div className="add-card">
           <button onClick={() => setShowAddCard(true)} className="add-card-button">
             +
           </button>
         </div>
-
         {showAddCard && (
           <div className="add-card-form">
             <h2>Add a New Card</h2>
-            <PaymentInputsContainer>
-              <div className="card-inputs">
-                <input {...getCardNumberProps()} placeholder="Card number" />
-                <input {...getExpiryDateProps()} placeholder="MM/YY" />
-                <input {...getCvcProps()} placeholder="CVC" />
+            <Cards
+              cvc={cardInfo.cvc || ''}
+              expiry={cardInfo.expiry || ''}
+              focused={cardInfo.focus}
+              name={cardInfo.name || ''}
+              number={cardInfo.number || ''}
+            />
+            <form style={{ marginTop: '0.5rem' }}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name on card"
+                value={cardInfo.name}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+              <input
+                type="tel"
+                name="number"
+                placeholder="Card number"
+                value={cardInfo.number}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+              <input
+                type="text"
+                name="expiry"
+                placeholder="Expire Date"
+                value={cardInfo.expiry}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+              <input
+                type="tel"
+                name="cvc"
+                placeholder="CVV"
+                value={cardInfo.cvc}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+              <div className="set-default-payment">
+                <input
+                  type="checkbox"
+                  name="setDefault"
+                  checked={cardInfo.setDefault}
+                  onChange={handleInputChange}
+                />
+                <label htmlFor="setDefault">Set as default payment method</label>
               </div>
-              {meta.isTouched && meta.error && <span>{meta.error}</span>}
-            </PaymentInputsContainer>
-            <button type="button" onClick={handleAddCard} className="add-card-btn">ADD CARD</button>
-            <button type="button" onClick={() => setShowAddCard(false)} className="cancel-btn">Cancel</button>
+              <button type="button" onClick={handleAddCard} className="add-card-btn">ADD CARD</button>
+              <button type="button" onClick={() => setShowAddCard(false)} className="cancel-btn">Cancel</button>
+            </form>
           </div>
         )}
       </div>
