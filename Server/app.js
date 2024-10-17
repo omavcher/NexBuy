@@ -15,13 +15,10 @@ app.use(express.json());
 
 // Use CORS middleware
 app.use(cors({
-  origin: process.env.FRONTEND_LINK, 
-}));
-
-app.use(cors({
-  origin: process.env.FRONTEND_LINK,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: process.env.FRONTEND_LINK,  // Frontend link from environment variable
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
+  credentials: true  // Add this if you're using cookies or other credentials
 }));
 
 // Connect to MongoDB using the connection string from environment variables
