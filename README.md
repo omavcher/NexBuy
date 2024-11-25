@@ -40,4 +40,16 @@ To clone the project from GitHub, use the following command:
 
 ```git clone https://github.com/omavcher/NexBuy.git ```
 
-hghgmhmgh
+### 2️⃣ Install Dependencies
+Backend (Server)
+Navigate to the server folder and install the required dependencies:
+
+```cd server```
+```npm install```
+
+ ### Frontend (Client)
+Navigate to the client folder and install the required dependencies:
+
+```cd  client```
+```npm install```
+
