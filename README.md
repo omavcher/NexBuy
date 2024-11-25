@@ -38,5 +38,6 @@ Follow the steps below to set up **NexBuy** locally.
 
 To clone the project from GitHub, use the following command:
 
-```bash
-git clone [https://github.com/OmAvcher/NexBuy.git](https://github.com/omavcher/NexBuy.git)
+```git clone https://github.com/omavcher/NexBuy.git ```
+
+hghgmhmgh
